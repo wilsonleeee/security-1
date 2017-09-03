@@ -62,7 +62,7 @@ public class Tools {
 	 * @throws Exception
 	 */
 	public static byte[] readData(String fileName) throws Exception {
-		InputStream dataIS = new FileInputStream("hjj.data");
+		InputStream dataIS = new FileInputStream(fileName);
 		byte[] data = new byte[dataIS.available()];
 		dataIS.read(data, 0, data.length);
 		dataIS.close();
