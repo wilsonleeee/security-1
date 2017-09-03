@@ -15,8 +15,8 @@ public class DigestDemo {
 	@Test
 	public void md5() throws Exception {
 		String md5 = null;
-		// MessageDigest digest = MessageDigest.getInstance("MD5");
-		MessageDigest digest = MessageDigest.getInstance("SHA-1");
+		MessageDigest digest = MessageDigest.getInstance("MD5");
+		// MessageDigest digest = MessageDigest.getInstance("SHA-1");
 		digest.update("Jason".getBytes());
 		byte[] result = digest.digest();
 		System.out.println(result.length);
@@ -36,8 +36,10 @@ public class DigestDemo {
 			return null;
 		}
 		for (int i = 0; i < src.length; i++) {
+			// 如果不进行&0xff，那么当一个byte转换成int时，由于int是32位，而byte只有8位，这时会进行补位，可能会出现错误
 			int v = src[i] & 0xFF;
 			String hv = Integer.toHexString(v);
+			// 因为一个byte 8位可以表示两个十六进制字符，如果小于2的话前面要加个0
 			if (hv.length() < 2) {
 				stringBuilder.append(0);
 			}
