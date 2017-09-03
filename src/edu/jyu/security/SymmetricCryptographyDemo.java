@@ -1,4 +1,4 @@
-package edu.jyu.cipher;
+package edu.jyu.security;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
